@@ -48,6 +48,26 @@ function App() {
     <div className="container mt-3">
       <h1>Issues</h1>
       <IssueList issues={issues} labels={labels} />
+      <div className="mt-3">
+        <h3>Create Issue</h3>
+        <form>
+          <div className="form-group">
+            <label htmlFor="title">Title</label>
+            <input type="text" className="form-control" id="title" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="label">Label</label>
+            <select className="form-control" id="label">
+              {labels.map((label) => {
+                return <option key={label.id}>{label.name}</option>;
+              })}
+            </select>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Save
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
